@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camera</title>
+</head>
+<body>
+  <video id="video" autoplay style="position:fixed; top:0; bottom:0; right:0; left:0; width:100%; height:100%; z-index:5; object-fit: cover;">Video stream not available</video>
+  <script async>
+    const video = document.getElementById('video');
+    function startup() {
+      navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: true
+      }).then(stream => {
+        video.srcObject = stream;
+      }).catch(console.error)
+    }
+    window.addEventListener('load',startup,false);
+  </script>
+</body>
+</html>
