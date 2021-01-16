@@ -38,6 +38,7 @@ function setup() {
   video.hide();
 }
 function draw() {
+    clear();
   translate(windowWidth, 0);
   scale(-1, 1);
   canv = image(video, 0, 0, windowWidth, windowHeight);
@@ -53,7 +54,7 @@ function drawSkeletonKeypoints() {
 			let partB = skeleton[j][1];
 			push();
 			stroke('rgba(255,255,255, 0.5)');
-			strokeWeight(2);
+			strokeWeight(10);
 			line(partA.position.x, partA.position.y, partB.position.x, partB.position.y);
 			pop();
 		}
@@ -71,7 +72,7 @@ function drawSkeletonKeypoints() {
 				push();
 				fill('rgba(255,255,255, 0.5)');
 				noStroke();
-				ellipse(keypoint.position.x, keypoint.position.y, 10, 10);
+				ellipse(keypoint.position.x, keypoint.position.y, 50, 50);
 				pop();
 			}
 		}
